@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('telefone');
             $table->string('n_processo');
             $table->string('data_processo');
-            $table->string('codigo_verificador');
-            $table->string('n_acordo');
+            $table->string('codigo_verificador')->nullable();
+            $table->string('n_acordo')->nullable();
             
             $table->text('solicitacao1');
             $table->text('solicitacao2');
