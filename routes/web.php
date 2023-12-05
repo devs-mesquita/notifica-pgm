@@ -15,8 +15,10 @@ use App\Http\Controllers\UserController;
             
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/', 		[HomeController::class, 'index'])->name('home');
-	Route::post('logout', 	[LoginController::class, 'logout'])->name('logout');
+	Route::get('/', 				[HomeController::class, 'index'])->name('home');
+	Route::post('logout', 			[LoginController::class, 'logout'])->name('logout');
+	Route::get ('/alterasenha',		[UserController::class, 'AlteraSenha']);
+	Route::post('/salvasenha',   	[UserController::class, 'SalvarSenha']);
 
 	
 	Route::get('notificacao/pdf/{id}',	[NotificacaoController::class, 'imprimir']);

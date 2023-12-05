@@ -11,12 +11,19 @@
                 
                
                 <li class="nav-item px-3 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0">
-                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
+                    <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer me-sm-1"></i>
                     </a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
+                {{-- <li class="nav-item d-flex align-items-center">
+                        <a class="nav-link text-white font-weight-bold px-0">
+                            <i class="fa fa-user me-sm-1"></i>
+                            <span class="d-sm-inline d-none">Sair</span>
+                        </a>
+                </li> --}}
+
+                {{-- <li class="nav-item d-flex align-items-center">
                     <form role="form" method="post" action="{{ route('logout') }}" id="logout-form">
                         @csrf
                         <a href="{{ route('logout') }}"
@@ -26,7 +33,7 @@
                             <span class="d-sm-inline d-none">Sair</span>
                         </a>
                     </form>
-                </li>
+                </li> --}}
                 
             </ul>
         </div>
