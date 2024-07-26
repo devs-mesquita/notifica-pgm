@@ -102,7 +102,7 @@ td{
             </table>
         </div>
         
-        <h3 style="text-align:center;"><u>SUBSECRETARIA MUNICIPAL DE FAZENDA</u></h3>
+        <h3 style="text-align:center;"><u>PROCURADORIA GERAL DO MUNICIPIO DE MESQUITA</u></h3>
         <br>
         <div class="row">
             {{-- <span style="font-weight:bold;">Data do envio:</span>{{ date('d/m/Y', strtotime($data["created_at"])) }} --}}

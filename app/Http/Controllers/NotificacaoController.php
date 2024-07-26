@@ -20,31 +20,58 @@ class NotificacaoController extends Controller
    public function create()
    {
       $mensagens = Mensagem::all();
+      // dd($mensagens[0]);
 
       return view('pages.notificacao.create',compact('mensagens'));
    }
 
    public function store(Request $request)
    {
-      $decode_mensagem = json_decode($request->mensagem);
+      // dd($request->all());
+      
 
-      for($i = 0; $i < count($request->nome); $i++)
-        {
+      if($request->mensagem == null){
 
-            $new_premium = Notificacao::create([
-               'nome'                  => $request->nome[$i],
-               'cpf'                   => $request->cpf[$i],
-               'telefone'              => $request->telefone[$i],
-               'user_id'               => Auth::user()->id,
-               'n_processo'            => $request->n_processo[$i],
-               'n_acordo'              => $request->n_acordo[$i],
-               'codigo_verificador'    => $request->codigo_verificador[$i],
-               'data_processo'         => date("d-m-Y", strtotime($request->data_processo[$i])),
-               'solicitacao1'          => $decode_mensagem->solicitacao1,
-               'solicitacao2'          => $decode_mensagem->solicitacao2,
-               'solicitacao3'          => $decode_mensagem->solicitacao3,
-            ]);
-        }
+         for($i = 0; $i < count($request->nome); $i++)
+            {
+               $new_premium = Notificacao::create([
+                'nome'                  => $request->nome[$i],
+                'cpf'                   => $request->cpf[$i],
+                'telefone'              => $request->telefone[$i],
+                'user_id'               => Auth::user()->id,
+                'n_processo'            => $request->n_processo[$i],
+                'n_acordo'              => $request->n_acordo[$i],
+                'codigo_verificador'    => $request->codigo_verificador[$i],
+                'data_processo'         => date("d-m-Y", strtotime($request->data_processo[$i])),
+                'solicitacao1'          => 'Apresentar originais e cópias legíveis dos boletos e comprovantes',
+                'solicitacao2'          => 'de pagamento no prazo de 15 dias da(s) parcela(s) '.$request->numero_parcela,
+                'solicitacao3'          => 'dos exercício(s) '.$request->exercicio.' do cadastro imobiliario '.$request->numero_cadastro,
+             ]);
+         }
+
+      }else{
+         $decode_mensagem = json_decode($request->mensagem);
+
+         for($i = 0; $i < count($request->nome); $i++)
+            {
+             
+               $new_premium = Notificacao::create([
+                'nome'                  => $request->nome[$i],
+                'cpf'                   => $request->cpf[$i],
+                'telefone'              => $request->telefone[$i],
+                'user_id'               => Auth::user()->id,
+                'n_processo'            => $request->n_processo[$i],
+                'n_acordo'              => $request->n_acordo[$i],
+                'codigo_verificador'    => $request->codigo_verificador[$i],
+                'data_processo'         => date("d-m-Y", strtotime($request->data_processo[$i])),
+                'solicitacao1'          => $decode_mensagem->solicitacao1,
+                'solicitacao2'          => $decode_mensagem->solicitacao2,
+                'solicitacao3'          => $decode_mensagem->solicitacao3,
+             ]);
+         }
+      }
+
+      
         return redirect()->to('notificacao');
       // dd($request->all());
    }
