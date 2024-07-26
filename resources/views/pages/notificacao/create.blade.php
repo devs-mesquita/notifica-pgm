@@ -77,7 +77,7 @@
                                             <div class="card-body ">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <input type="radio" name="mensagem" id="mensagem" value="{{$mensagem}}" required>
+                                                        <input onclick="tiraobrigatorio()" type="radio" name="mensagem" id="mensagem" value="{{$mensagem}}" required>
                                                         <p class="card-text">{{$mensagem->solicitacao1}} {{$mensagem->solicitacao2}} {{$mensagem->solicitacao3}}</p>
                                                     </div>
                                                 </div>
@@ -85,6 +85,31 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xl-12 col-sm-12 mb-xl-12 mb-4">
+                                        <div class="card">
+                                            <div class="card-body ">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <input type="radio" name="mensagem" value="" onclick="obrigatorio()" id="disforme" required>
+                                                        
+                                                        Apresentar originais e cópias legíveis dos boletos
+                                                        
+                                                        e comprovantes de pagamento no prazo de 15 dias da(s) parcela(s) 
+                                                        <input type="text" name="numero_parcela" id="numero_parcela" placeholder="numero de parcelas" >
+                                                        dos exercício(s) 
+                                                        <input type="text" name="exercicio" id="exercicio" maxlength="5" placeholder="exercicio">
+                                                        
+                                                        do cadastro imobiliario 
+                                                        <input type="text" name="numero_cadastro" id="numero_cadastro" placeholder="numero do cadastro">
+                                                        .
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                         
@@ -131,12 +156,6 @@
             $('.novadiv').append('<li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg dados"><div class="d-flex flex-column"><div class="form-group row dados"><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" >Nome</label><input type="text" id="nome" name="nome[]"  class="form-control" placeholder="Nome" minlength="4" maxlength="100" required ></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" >CPF</label><input onblur="validarCPF(this)" type="text" id="cpf" name="cpf[]"  class="form-control" placeholder="CPF" minlength="11" maxlength="11" required ></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" for="telefone">Celular</label><input type="text" id="telefone" name="telefone[]" placeholder="(21)XXXXX-XXXX" maxlength="14" class="form-control"  required></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" for="n_processo">Numero de Processo</label><input type="text" id="n_processo" name="n_processo[]" placeholder="Numero de Processo" maxlength="14" class="form-control" required></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" for="data_processo">Data do Processo</label><input type="date" id="data_processo" name="data_processo[]" placeholder="Data do Processo" maxlength="14" class="form-control" required></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" for="codigo_verificador">Codigo Verificador</label><input type="text" id="codigo_verificador" name="codigo_verificador[]" placeholder="Codigo Verificador" maxlength="14" class="form-control"></div><div class="form-group col-md-3 col-sm-3 col-xs-12"><label class="control-label" for="n_acordo">Nº Acordo</label><input type="text" id="n_acordo" name="n_acordo[]" placeholder="Numero do Acordo" maxlength="14" class="form-control"></div></div></div><div class="ms-auto text-end"><button class="btn btn-link text-danger text-gradient px-3 mb-0 btn_remove"><i class="far fa-trash-alt me-2" aria-hidden="true"></i>Remover</button></div></li>')
             
             VMasker($('.dados').last().find('#telefone')).maskPattern("(99)99999-9999");
-            
-      
-
-            // $('.dados:first').clone().appendTo($('.novadiv'));
-            // $('.dados').last().find('input[type="text"]').val('');
-
 
             $('#checkboxvalue').attr('required', 'required');
     });
@@ -147,6 +166,19 @@
            $(this).parents('.dados').remove();
         } 
     });
+
+
+    function tiraobrigatorio(){
+        $('#numero_parcela').removeAttr('required');
+        $('#exercicio').removeAttr('required');
+        $('#numero_cadastro').removeAttr('required');
+    }
+
+    function obrigatorio(){        
+        $('#numero_parcela').attr('required', 'required');
+        $('#exercicio').attr('required', 'required');
+        $('#numero_cadastro').attr('required', 'required');
+    }
 
     $(function(){
 		$('body').submit(function(event){
