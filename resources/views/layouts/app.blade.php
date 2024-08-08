@@ -15,7 +15,8 @@
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script> --}}
+    <script src="{{ asset('assets/js/42d5adcbca.js') }}"></script>
     {{-- https://bootstrapr.io/bs3/web-fonts-fontawesome.html --}}
 
     <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
