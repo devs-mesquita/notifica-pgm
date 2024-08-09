@@ -97,7 +97,7 @@
                                                         
                                                         Apresentar originais e cópias legíveis dos boletos
                                                         
-                                                        e comprovantes de pagamento no prazo de 15 dias da(s) parcela(s) 
+                                                        e comprovantes de pagamento da(s) parcela(s) 
                                                         <input type="text" name="numero_parcela" id="numero_parcela" placeholder="numero de parcelas" >
                                                         dos exercício(s) 
                                                         <input type="text" name="exercicio" id="exercicio" maxlength="5" placeholder="exercicio">

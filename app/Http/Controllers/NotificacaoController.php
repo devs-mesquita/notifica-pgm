@@ -44,7 +44,7 @@ class NotificacaoController extends Controller
                 'codigo_verificador'    => $request->codigo_verificador[$i],
                 'data_processo'         => date("d-m-Y", strtotime($request->data_processo[$i])),
                 'solicitacao1'          => 'Apresentar originais e cópias legíveis dos boletos e comprovantes',
-                'solicitacao2'          => 'de pagamento no prazo de 15 dias da(s) parcela(s) '.$request->numero_parcela,
+                'solicitacao2'          => 'de pagamento da(s) parcela(s) '.$request->numero_parcela,
                 'solicitacao3'          => 'dos exercício(s) '.$request->exercicio.' do cadastro imobiliario '.$request->numero_cadastro,
              ]);
          }
