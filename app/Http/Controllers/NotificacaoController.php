@@ -36,6 +36,7 @@ class NotificacaoController extends Controller
             {
                $new_premium = Notificacao::create([
                 'nome'                  => $request->nome[$i],
+                'email'                 => $request->email[$i],
                 'cpf'                   => $request->cpf[$i],
                 'telefone'              => $request->telefone[$i],
                 'user_id'               => Auth::user()->id,
@@ -57,6 +58,7 @@ class NotificacaoController extends Controller
              
                $new_premium = Notificacao::create([
                 'nome'                  => $request->nome[$i],
+                'email'                 => $request->email[$i],
                 'cpf'                   => $request->cpf[$i],
                 'telefone'              => $request->telefone[$i],
                 'user_id'               => Auth::user()->id,
@@ -91,6 +93,7 @@ class NotificacaoController extends Controller
       $data = [
          // 'notificacao' => $notificacao
          'nome'               => $notificacao->nome,
+         'email'              => $notificacao->email,
          'cpf'                => $notificacao->cpf,
          'telefone'           => $notificacao->telefone,
          'n_processo'         => $notificacao->n_processo,

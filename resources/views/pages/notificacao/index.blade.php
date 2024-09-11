@@ -25,6 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nome</th>
+                                            <th>Email</th>
                                             <th>Telefone</th>
                                             <th>Data</th>
                                             <th>Processo</th>
@@ -35,6 +36,7 @@
                                         @foreach ($notificacoes as $notificacao)
                                             <tr>
                                                 <td>{{$notificacao->nome}}</td>
+                                                <td>{{$notificacao->email}}</td>
                                                 <td>{{$notificacao->telefone}}</td>
                                                 <td>{{ date('d/m/Y', strtotime($notificacao->created_at)) }}</td>
                                                 <td>{{$notificacao->n_processo}}</td>

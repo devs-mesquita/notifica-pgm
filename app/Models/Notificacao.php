@@ -13,6 +13,7 @@ class Notificacao extends Model
 
     protected $fillable = [
         'nome',
+        'email',
         'cpf',
         'telefone',
         'n_processo',
